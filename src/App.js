@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { Box, Toolbar } from "@mui/material";
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import Header from "./components/Header";
+import CategoryPage from "./pages/CategoryPage";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Header />
+      <Box sx={{ p: 3 }}>
+        <Toolbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/category/:name" element={<CategoryPage />} />
+          <Route path="/recipe/:id" element={<RecipePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Box>
+    </Box>
   );
 }
 
