@@ -8,7 +8,7 @@ import { theme } from "./mui";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Food-recipes">
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
